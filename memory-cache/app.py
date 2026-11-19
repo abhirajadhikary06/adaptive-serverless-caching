@@ -18,6 +18,11 @@ def create_app():
     # Register API blueprint
     app.register_blueprint(api_bp)
 
+    @app.errorhandler(Exception)
+    def handle_exception(e):
+        logger.error(f"Unhandled exception: {e}", exc_info=True)
+        return {"error": str(e)}, 500
+
     # Initialize DB table if in dev mode and DATABASE_URL is supplied
     if Config.DATABASE_URL:
         try:

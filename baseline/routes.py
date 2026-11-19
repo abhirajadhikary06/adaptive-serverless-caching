@@ -1,5 +1,6 @@
 import uuid
 import time
+import psycopg2
 from flask import Blueprint, request, jsonify, make_response
 from database import (
     db_get_record,
