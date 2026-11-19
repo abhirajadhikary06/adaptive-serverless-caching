@@ -55,6 +55,22 @@ def _add_diagnostic_headers(
     return response
 
 
+@api_bp.route("/", methods=["GET"])
+def index():
+    """Root endpoint for sanity check and discovery."""
+    return jsonify({
+        "status": "healthy",
+        "config_id": Config.CONFIG_ID,
+        "config_name": Config.CONFIG_NAME,
+        "endpoints": {
+            "docs": "/docs",
+            "health": "/health",
+            "metrics": "/metrics",
+            "records": "/records"
+        }
+    }), 200
+
+
 @api_bp.route("/health", methods=["GET"])
 def health():
     """Health check without warming caches."""
