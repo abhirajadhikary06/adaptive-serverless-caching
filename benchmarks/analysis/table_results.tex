@@ -1,0 +1,17 @@
+\begin{table*}[t]
+\centering
+\caption{Empirical Serverless Caching Latency and Hit Ratio Comparison Across Progressive Tiers (E1--E6)}
+\label{tab:caching_results}
+\begin{tabular}{lrrrrrrrrrrrrrr}
+\toprule
+Tier & Total Requests & Reads & Mean Latency (ms) & Std Dev (ms) & p50 (ms) & p90 (ms) & p95 (ms) & p99 (ms) & L1 Hits & L2 Hits & DB Misses & Cache Hit Ratio & Speedup Factor & Errors \\
+\midrule
+E1 & 468 & 426 & 2838.08 & 1171.16 & 3250.79 & 4418.58 & 4577.55 & 5418.23 & 0 & 0 & 426 & 0.0\% & 1.00x & 0 \\
+E2 & 468 & 426 & 1839.13 & 1525.49 & 1814.03 & 4097.86 & 4634.92 & 4876.91 & 176 & 0 & 250 & 41.3\% & 1.54x & 0 \\
+E3 & 468 & 426 & 1297.67 & 1241.65 & 602.98 & 3421.02 & 4250.03 & 4954.32 & 0 & 310 & 116 & 72.8\% & 2.19x & 0 \\
+E4 & 468 & 426 & 1200.13 & 1431.35 & 479.21 & 3812.2 & 4525.88 & 5205.42 & 207 & 108 & 111 & 73.9\% & 2.36x & 0 \\
+E5 & 468 & 426 & 2058.61 & 1852.49 & 1451.55 & 4832.74 & 5035.05 & 5303.05 & 175 & 30 & 221 & 48.1\% & 1.38x & 0 \\
+E6 & 468 & 426 & 2067.73 & 1659.38 & 1410.79 & 4812.85 & 4992.14 & 5280.09 & 150 & 47 & 229 & 46.2\% & 1.37x & 0 \\
+\bottomrule
+\end{tabular}
+\end{table*}
